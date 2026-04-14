@@ -1,10 +1,10 @@
-const webSocket = require('ws');
+const WebSocket = require('ws');
 const bellmanFord = require('./services/bellmanFord.service');
 const graphStore = require('./graph/graphStore');
 
 
 function initSocket(server){
-    const wss = new WebSocket.server({server});
+    const wss = new WebSocket.Server({ server });
 
     wss.on('connection', (ws) =>{
         console.log('Client connected');

@@ -3,8 +3,8 @@ const http = require('http');
 const cors = require('cors');
 
 const initSocket = require('./socket');
-const trafficSimulator = require('./trafficSimulator');
-const graphStore = require('./graphStore');
+const trafficSimulator = require('./graph/trafficSimulator');
+const graphStore = require('./graph/graphStore');
 
 const app = express();
 app.use(cors());

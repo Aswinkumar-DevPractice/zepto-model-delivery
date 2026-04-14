@@ -1,12 +1,20 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, Signal, signal } from '@angular/core';
+
+import { Websocket } from './services/websocket';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('frontend');
+   data = signal<any>(null);
+   
+   constructor(private ws : Websocket){
+       this.ws.connect().subscribe( res => this.data.set(res));
+   };
+
+  
 }
